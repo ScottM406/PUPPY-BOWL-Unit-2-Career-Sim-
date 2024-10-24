@@ -8,7 +8,14 @@ const renderPuppyData = (puppies) => {
   <h1>${pup.name}</h1>
   `;
   main.append(puppySection);
+  document.addEventListener(`click`, (event) => {
+    if (event.target =`section`) {
+      // if (event.target === `${pup.name}`) {
+      // console.log(`${pup.name} clicked`);
+      // }
+    }
   });
+});
 };
 
 //write a function that fetches data from the API and converts it to user-readable html.
@@ -26,14 +33,4 @@ const getPuppyData = async () => {
 //run the code that funtion that grabs puppy data and then pass it into the render function.
 getPuppyData().then(resolvedPuppyData => {
   renderPuppyData(resolvedPuppyData);
-});
-
-//add an event listener to each puppy section that takes the user to information about that particular puppy.
-
-document.addEventListener(`click`, (event) => {
-  if (event.target =`section`) {
-    if (event.target.innerText === `<h1>Anise</h1>`) {
-      console.log(`Anise clicked`);
-    }
-  }
 });

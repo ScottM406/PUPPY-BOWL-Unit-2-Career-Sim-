@@ -1,9 +1,10 @@
 //write a function that renders the page with data. the data from the API will be passed in.
 const renderPuppyData = (puppies) => {
   const main = document.querySelector(`main`);
-  puppies.forEach(pup => {
+  puppies.map(pup => {
   const puppySection = document.createElement(`section`)
   puppySection.innerHTML = `
+  <img id="puppy-pic" src="${pup.imageUrl}" alt="A photo of ${pup.name}">
   <h1>${pup.name}</h1>
   `;
   main.append(puppySection);
@@ -17,6 +18,7 @@ const getPuppyData = async () => {
   const convertedData = await dataFetched.json();
   //grab the data I need from the object
   const puppyData = convertedData.data.players;
+  console.log(puppyData);
   return puppyData;
   //pass this data through my render function ^^^
 };
@@ -30,6 +32,6 @@ getPuppyData().then(resolvedPuppyData => {
 
 document.addEventListener(`click`, (event) => {
   if (event.target =`section`) {
-    console.log(`clicked`);
-  }
-})
+    console.log(`clicked`)
+    }
+});
