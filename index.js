@@ -27,6 +27,8 @@ const renderPuppyData = (puppies) => {
    puppySection.addEventListener(`click`, (event) => {
       main.innerHTML = `
       <img class="big-pup-pic" src="${pup.imageUrl}" alt=A photo of "${pup.name}">
+      <p>'${pup.name} is a ${pup.breed}. They are one of this years' 
+      star players! ${pup.name} is currently on the ${pup.status}.
       `;
   });
 });
