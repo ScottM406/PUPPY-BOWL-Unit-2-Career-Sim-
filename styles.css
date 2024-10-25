@@ -49,6 +49,14 @@ h3 {
   color: blanchedalmond;
 }
 
+p {
+  float: inline-end;
+  font-size: 74;
+  margin-top: 10%;
+  margin-right: 4%;
+  color: blanchedalmond;;
+  width: 40%
+}
 header {
   display: flex;
   justify-content: center;
