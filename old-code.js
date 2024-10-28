@@ -72,26 +72,16 @@ const renderPuppyData = (puppies) => {
     `;
   }
    main.append(puppySection);
-  //the funcion creates an event listener for each nameplate and takes the user to the puppys details. it also
-  //creates a button that takes the user back to all puppies.
+  //the funcion creates an event listener for each nameplate
    puppySection.addEventListener(`click`, (event) => {
-    main.innerHTML = `
-    <img class="big-pup-pic" src="${pup.imageUrl}" alt=A photo of "${pup.name}">
-    <p>'${pup.name} is a ${pup.breed}. They are one of this years' 
-    star players! ${pup.name} is currently on the ${pup.status}.</p>
-    `;
-    const backButton = document.createElement(`button`);
-    backButton.innerText = "Go back to all puppies!"
-    main.append(backButton);
-    backButton.addEventListener(`click`, (event) => {
-      mainReloaded.innerHTML = ``;
-      getTeamRosterData().then(resolvedRosterData=> {
-        const shuffledPuppies = shufflePuppies(resolvedRosterData);
-        renderPuppyData(shuffledPuppies);
-      });
+      main.innerHTML = `
+      <img class="big-pup-pic" src="${pup.imageUrl}" alt=A photo of "${pup.name}">
+      <p>'${pup.name} is a ${pup.breed}. They are one of this years' 
+      star players! ${pup.name} is currently on the ${pup.status}.</p>
+      <button>Go back to all puppies!</button>
+      `;
     });
   });
-});
 };
 
 //run the funtion that grabs puppy data and then pass it into the render function.
@@ -100,7 +90,8 @@ getTeamRosterData().then(resolvedRosterData=> {
   renderPuppyData(shuffledPuppies);
 });
 
-//add functionality that takes the user back to the list of puppies (re-scrambled) wben the user clicks the logo.
+//add functionality to re-render the page when the user wants to return to the list of puppies.
+//the user can either click either the logo or 'go back to all puppies!' button to go back
 const logo = document.querySelector(`#logo`);
 const button =document.querySelector(`#back-button`);
 const mainReloaded = document.querySelector(`main`);
@@ -110,4 +101,11 @@ logo.addEventListener(`click`, (event) => {
     const shuffledPuppies = shufflePuppies(resolvedRosterData);
     renderPuppyData(shuffledPuppies);
   });
+button.addEventListener(`click`, (event) => {
+    mainReloaded.innerHTML = ``;
+    getTeamRosterData().then(resolvedRosterData=> {
+      const shuffledPuppies = shufflePuppies(resolvedRosterData);
+      renderPuppyData(shuffledPuppies);
+    });
+  });   
 });

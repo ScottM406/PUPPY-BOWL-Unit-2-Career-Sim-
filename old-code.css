@@ -4,8 +4,8 @@ html {
 }
 
 body {
-  width: 99%;
-  height: 100%;
+  width: 95%;
+  height: 97%;
   background-image: url(./images/bodybg.jpg);
   background-size: cover;
   opacity: 80%;
@@ -49,26 +49,6 @@ h3 {
   color: blanchedalmond;
 }
 
-p {
-  float: inline-end;
-  font-size: 74;
-  margin-top: 10%;
-  margin-right: 4%;
-  margin-bottom: 0;
-  color: blanchedalmond;;
-  width: 40%
-}
-
-button {
-  width: 40%;
-  height: 10%;
-  float: inline-end;
-  margin-right: 10%;
-  font-size: 68;
-  border: 5px outset blanchedalmond;
-  background-color: rgb(131, 99, 20);
-
-}
 header {
   display: flex;
   justify-content: center;
@@ -96,9 +76,4 @@ header {
 .team-helmet {
   height: 12.5%;
   width: 12.5%;
-}
-
-.big-pup-pic {
-  margin-top: 5%;
-  height: 60%
 }
